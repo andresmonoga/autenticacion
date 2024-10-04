@@ -8,12 +8,19 @@
     </span>
 
     <div class="wrap-input100 m-b-23">
-        <span class="label-input100">Correo</span>
+        <span
+        for="validationCustom03"
+        class="label-input100">Correo</span>
         <input class="input100"
                formControlName="email"
                type="email"
-               placeholder="Correo electrónico">
+               id="validationCustom03"
+               placeholder="Correo electrónico"
+               required>
         <span class="focus-input100"></span>
+        <div class="invalid-feedback">
+          Choose a valid email address
+          </div>
     </div>
 
     <div class="wrap-input100">
@@ -31,7 +38,6 @@
         <div class="wrap-login100-form-btn">
             <div class="login100-form-bgbtn"></div>
             <button class="login100-form-btn"
-            [disabled]="myForm.invalid"
                     type="submit">
                 Login
             </button>
