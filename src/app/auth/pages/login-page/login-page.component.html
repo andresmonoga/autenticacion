@@ -8,22 +8,12 @@
     </span>
 
     <div class="wrap-input100 m-b-23">
-        <span
-        for="validationCustom03"
-        class="label-input100">Correo</span>
-        <div class="input-group has-validation">
+        <span class="label-input100">Correo</span>
         <input class="input100"
                formControlName="email"
                type="email"
-               id="validationCustom03"
-               placeholder="Correo electrónico"
-               aria-describedby="inputGroupPrepend"
-               required>
+               placeholder="Correo electrónico">
         <span class="focus-input100"></span>
-        <div class="invalid-feedback">
-          Choose a valid email address
-          </div>
-        </div>
     </div>
 
     <div class="wrap-input100">
@@ -33,6 +23,17 @@
                type="password"
                placeholder="Ingrese su contraseña">
         <span class="focus-input100"></span>
+    </div>
+
+    <div class="col-md-4">
+      <label for="validationCustomUsername" class="form-label">Username</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text" id="inputGroupPrepend">Name</span>
+        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+        <div class="invalid-feedback">
+          Please choose a username.
+        </div>
+      </div>
     </div>
 
     <div class="text-right p-t-8 p-b-31"></div>
