@@ -24,17 +24,20 @@ export class RegisterPageComponent {
 
 
 
-  register(){
-    const { email, password, name } = this.myForm.value;
+  register() {
+    if (this.myForm.valid) {
+      const { email, password, name } = this.myForm.value;
 
-    this.authService.register(email, password, name)
-    .subscribe({
-      next: () => this.router.navigateByUrl('/dashboard'),
-
-      error: (message) =>{
-       Swal.fire('Error', message, 'error')
-      }
-      })
+      this.authService.register(email, password, name)
+        .subscribe({
+          next: () => this.router.navigateByUrl('/dashboard'),
+          error: (message) => {
+            Swal.fire('Error', message, 'error');
+          }
+        });
+    } else {
+      Swal.fire('Error', 'Por favor, complete todos los campos requeridos correctamente.', 'warning');
+    }
   }
 }
 

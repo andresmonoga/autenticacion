@@ -12,8 +12,10 @@
         <input class="input100"
                formControlName="email"
                type="email"
-               placeholder="Correo electrónico">
-        <span class="focus-input100"></span>
+               placeholder="name@exmple.com">
+               <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched"
+               class="error-message">
+               Por favor ingresa un correo electrónico válido.</div>
     </div>
 
     <div class="wrap-input100">
@@ -22,7 +24,9 @@
                formControlName="password"
                type="password"
                placeholder="Ingrese su contraseña">
-        <span class="focus-input100"></span>
+               <div *ngIf="myForm.get('password')?.invalid && myForm.get('password')?.touched"
+               class="error-message">
+                La contraseña debe tener al menos 6 caracteres.</div>
     </div>
 
 
@@ -32,7 +36,9 @@
              formControlName="name"
              type="name"
              placeholder="Ingrese su Nombre">
-      <span class="focus-input100"></span>
+             <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched"
+             class="error-message">
+             Campo Requerido</div>
     </div>
 
     <div class="text-right p-t-8 p-b-31"></div>

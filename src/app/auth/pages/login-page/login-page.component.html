@@ -3,26 +3,32 @@
       (ngSubmit)="login()"
       autocomplete="off">
 
+
     <span class="login100-form-title p-b-49">
         Login
     </span>
+
 
     <div class="wrap-input100 m-b-23">
         <span class="label-input100">Correo</span>
         <input class="input100"
                formControlName="email"
                type="email"
-               placeholder="Correo electrónico">
-        <span class="focus-input100"></span>
+               placeholder="name@exmple.com">
+               <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched"
+               class="error-message">
+               Por favor ingresa un correo electrónico válido.</div>
     </div>
 
     <div class="wrap-input100">
         <span class="label-input100">Contraseña</span>
-        <input class="input100"
+        <input class="input100 "
                formControlName="password"
                type="password"
                placeholder="Ingrese su contraseña">
-        <span class="focus-input100"></span>
+               <div *ngIf="myForm.get('password')?.invalid && myForm.get('password')?.touched"
+               class="error-message">
+                La contraseña debe tener al menos 6 caracteres.</div>
     </div>
 
     <div class="text-right p-t-8 p-b-31"></div>
@@ -46,4 +52,40 @@
             Crear una aquí
         </a>
     </div>
+
+
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+
+            let valid = true;
+
+            // Validar el campo de usuario
+            const username = document.getElementById('username').value;
+            const usernameError = document.getElementById('usernameError');
+            if (username === '') {
+                usernameError.style.display = 'inline';
+                valid = false;
+            } else {
+                usernameError.style.display = 'none';
+            }
+
+            // Validar el campo de contraseña
+            const password = document.getElementById('password').value;
+            const passwordError = document.getElementById('passwordError');
+            if (password === '') {
+                passwordError.style.display = 'inline';
+                valid = false;
+            } else {
+                passwordError.style.display = 'none';
+            }
+
+            // Si todo es válido, puedes enviar el formulario
+            if (valid) {
+                alert('Formulario enviado.');
+                // Aquí puedes agregar la lógica para enviar el formulario
+            }
+        });
+
+    </script>
 </form>
